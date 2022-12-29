@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-app-deployment
+  namespace: k8s-training
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: example-app
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: example-app
+    spec:
+      containers:
+        - name: example-app-container
+          image: zmszaman/example-app:latest
+          ports:
+            - containerPort: 3000
+              name: app-port

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example-app-pod
+  namespace: k8s-training
+  labels:
+    app.kubernetes.io/name: example-app
+spec:
+  containers:
+    - name: example-app-container
+      image: zmszaman/example-app:latest
+      ports:
+        - containerPort: 3000
+          name: app-port
